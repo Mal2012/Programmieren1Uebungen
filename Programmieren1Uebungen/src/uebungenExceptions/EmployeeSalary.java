@@ -41,13 +41,13 @@ public class EmployeeSalary {
 		 * }
 		 */catch (InputMismatchException e) {
 			System.out.println("Only Enter Numbers");
-			System.exit(0);
+			System.exit(1);
 		} catch (NoSuchElementException e) {
 			System.out.println("INTERNAL ERROR");
-			System.exit(0);
+			System.exit(1);
 		} catch (IllegalStateException e) {
 			System.out.println("INTERNAL ERROR");
-			System.exit(0);
+			System.exit(1);
 		}
 		if (employeeNumber == 82500)
 			employeeName = "Peter Baker";
