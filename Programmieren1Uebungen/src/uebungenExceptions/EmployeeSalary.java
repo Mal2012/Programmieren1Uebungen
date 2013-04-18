@@ -1,6 +1,5 @@
 package uebungenExceptions;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -26,11 +25,16 @@ public class EmployeeSalary {
 		try {
 			employeeNumber = scnr.nextLong();
 
-		} catch (InputMismatchException e) {
+			System.out.print("Enter Hourly Salary: ");
+
+			hourlySalary = scnr.nextDouble();
+			System.out.print("Enter Weekly Time: ");
+			weeklyTime = scnr.nextDouble();
+		} catch (Exception e) {
 			System.out.println("Only Enter Numbers");
 			System.exit(0);
-		}
 
+		}
 		if (employeeNumber == 82500)
 			employeeName = "Peter Baker";
 		else if (employeeNumber == 92746)
@@ -41,23 +45,6 @@ public class EmployeeSalary {
 			employeeName = "Gertrude Monay";
 		else
 			employeeName = "Unknown";
-
-		System.out.print("Enter Hourly Salary: ");
-		try {
-			hourlySalary = scnr.nextDouble();
-		} catch (InputMismatchException e) {
-			System.out.println("Only Enter Numbers");
-			System.exit(0);
-
-		}
-		System.out.print("Enter Weekly Time: ");
-		try {
-			weeklyTime = scnr.nextDouble();
-		} catch (InputMismatchException e) {
-			System.out.println("Only Enter Numbers");
-			System.exit(0);
-
-		}
 		if (weeklyTime < 40) {
 			regularTime = weeklyTime;
 			overtime = 0;
