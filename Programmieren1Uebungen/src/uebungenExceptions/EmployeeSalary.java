@@ -1,5 +1,7 @@
 package uebungenExceptions;
 
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -30,10 +32,22 @@ public class EmployeeSalary {
 			hourlySalary = scnr.nextDouble();
 			System.out.print("Enter Weekly Time: ");
 			weeklyTime = scnr.nextDouble();
-		} catch (Exception e) {
+
+		} /*
+		 * catch (Exception e) {
+		 * 
+		 * System.out.println("Only Enter Numbers"); System.exit(0);
+		 * 
+		 * }
+		 */catch (InputMismatchException e) {
 			System.out.println("Only Enter Numbers");
 			System.exit(0);
-
+		} catch (NoSuchElementException e) {
+			System.out.println("INTERNAL ERROR");
+			System.exit(0);
+		} catch (IllegalStateException e) {
+			System.out.println("INTERNAL ERROR");
+			System.exit(0);
 		}
 		if (employeeNumber == 82500)
 			employeeName = "Peter Baker";
@@ -45,6 +59,13 @@ public class EmployeeSalary {
 			employeeName = "Gertrude Monay";
 		else
 			employeeName = "Unknown";
+
+		if (weeklyTime < 0 || hourlySalary < 0) {
+			System.out.println("Values must be positive!");
+			weeklyTime = Math.abs(weeklyTime);
+			hourlySalary = Math.abs(hourlySalary);
+
+		}
 		if (weeklyTime < 40) {
 			regularTime = weeklyTime;
 			overtime = 0;
